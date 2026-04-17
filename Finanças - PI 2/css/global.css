@@ -295,3 +295,133 @@ body {
         text-align: center;
     }
 }
+
+/*============== TELA DE REGISTRO ===========*/
+
+body {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 500px; /* Um pouco mais largo que o login para acomodar campos lado a lado */
+    padding: 20px;
+}
+
+.register-card {
+    background: var(--surface);
+    padding: 40px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.register-header h1 {
+    font-family: var(--font-h);
+    color: var(--text);
+    font-size: 1.8rem;
+}
+
+.register-header h1 span {
+    color: var(--accent);
+}
+
+.register-header p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Organização de campos lado a lado em telas maiores */
+.input-row {
+    display: flex;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.input-group input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text);
+    font-family: var(--font-b);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* Checkbox de termos */
+.terms-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 25px 0;
+    font-size: 0.85rem;
+    color: var(--text);
+}
+
+.terms-group a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* Botão */
+.btn-register {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+.btn-register:active {
+    transform: scale(0.98);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.form-footer .highlight {
+    color: var(--blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Ajuste para celular */
+@media (max-width: 480px) {
+    .input-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

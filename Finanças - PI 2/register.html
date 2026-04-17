@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Finanças+</title>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+    <main class="register-container">
+        <div class="register-card">
+            <header class="register-header">
+                <h1>Criar Conta<span>.</span></h1>
+                <p>Comece a controlar sua vida financeira hoje mesmo.</p>
+            </header>
+
+            <form class="register-form">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" placeholder="Ex: João Silva" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">E-mail Corporativo</label>
+                    <input type="email" id="email" placeholder="nome@empresa.com" required>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" placeholder="Mín. 8 caracteres" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="confirm-password">Confirmar Senha</label>
+                        <input type="password" id="confirm-password" placeholder="Repita a senha" required>
+                    </div>
+                </div>
+
+                <div class="terms-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">Eu aceito os <a href="#">Termos e Condições</a></label>
+                </div>
+
+                <button type="submit" class="btn-register">Finalizar Cadastro</button>
+                
+                <div class="form-footer">
+                    <p>Já possui uma conta? <a href="index.html" class="highlight">Fazer Login</a></p>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
