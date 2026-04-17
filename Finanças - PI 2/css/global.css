@@ -37,3 +37,261 @@ body {
     transition: background 0.3s, color 0.3s;
     display: flex;
 }
+
+
+
+/*========== TELA DE METAS ===========*/
+
+body {
+    display: block; /* Sobrescrevendo o flex do login para layout de página */
+    padding: 40px;
+    background-color: var(--bg);
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    font-family: var(--font-h);
+    color: var(--text);
+}
+
+.page-header p {
+    color: var(--muted);
+}
+
+/* Botão de Ação */
+.btn-new-goal {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.btn-new-goal:hover {
+    filter: brightness(1.2);
+}
+
+/* Grid de Cards */
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.goal-card {
+    background: var(--surface);
+    padding: 24px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.badge {
+    color: white;
+    font-size: 0.7rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.goal-info h3 {
+    font-family: var(--font-h);
+    margin-top: 8px;
+    color: var(--text);
+}
+
+.goal-info p {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Barra de Progresso */
+.progress-container {
+    background: var(--surface2);
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+.goal-footer {
+    font-size: 0.85rem;
+    color: var(--text);
+    font-weight: 500;
+}
+
+/*============ PERFIL =============*/
+
+
+body {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.profile-container {
+    width: 100%;
+    max-width: 800px;
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 32px;
+}
+
+/* Header do Perfil */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+}
+
+.company-logo {
+    width: 80px;
+    height: 80px;
+    background: var(--accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    font-family: var(--font-h);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.company-intro h1 {
+    font-family: var(--font-h);
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.company-intro p {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.status-badge {
+    display: inline-block;
+    margin-top: 8px;
+    background: var(--green);
+    color: white;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* Conteúdo */
+.profile-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.info-section h3 {
+    font-family: var(--font-h);
+    color: var(--text);
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+}
+
+.info-card {
+    background: var(--surface2);
+    padding: 20px;
+    border-radius: 12px;
+    line-height: 1.8;
+    color: var(--text);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.stat-item {
+    background: var(--surface2);
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-item span {
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--blue);
+    margin-top: 4px;
+}
+
+/* Botões */
+.profile-actions {
+    margin-top: 40px;
+    display: flex;
+    gap: 12px;
+}
+
+.btn-edit {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-export {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-export:hover {
+    background: var(--surface2);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .profile-content {
+        grid-template-columns: 1fr;
+    }
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}

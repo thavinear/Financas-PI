@@ -1,0 +1,113 @@
+/* Centralização da tela */
+body {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-card {
+    background: var(--surface);
+    padding: 40px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-header h1 {
+    font-family: var(--font-h);
+    color: var(--text);
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.login-header h1 span {
+    color: var(--green); /* Usando sua variável de destaque */
+}
+
+.login-header p {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Estilização dos inputs */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.input-group input {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text);
+    font-family: var(--font-b);
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* Botão principal */
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-b);
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    opacity: 0.9;
+}
+
+/* Links e Rodapé */
+.form-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.85rem;
+}
+
+.form-footer a {
+    color: var(--muted);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.form-footer .highlight {
+    color: var(--blue);
+    font-weight: 600;
+    display: inline;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
