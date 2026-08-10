@@ -43,6 +43,7 @@ function safeParse<T>(value: string | null, fallback: T): T {
 
 export function getUsers() {
   const users = safeParse<User[]>(storage.get(USERS_KEY), []);
+
   if (!users.some((user) => user.email === DEMO_USER.email)) {
     const nextUsers = [DEMO_USER, ...users];
     storage.set(USERS_KEY, JSON.stringify(nextUsers));
@@ -54,20 +55,29 @@ export function getUsers() {
 
 export function getCurrentUser() {
   const isLogged = storage.get(LOGGED_KEY) === 'true';
-  const user = safeParse<User | null>(storage.get(CURRENT_USER_KEY), null);
+  const user = safeParse<User | null>(
+    storage.get(CURRENT_USER_KEY),
+    null,
+  );
+
   return isLogged ? user : null;
 }
 
 export function saveSession(user: User) {
   const safeUser = { ...user };
   delete safeUser.password;
+
   storage.set(CURRENT_USER_KEY, JSON.stringify(safeUser));
   storage.set(LOGGED_KEY, 'true');
+
   return safeUser;
 }
 
 export function login(email: string, password: string) {
-  const user = getUsers().find((item) => item.email.toLowerCase() === email.toLowerCase());
+  const user = getUsers().find(
+    (item) => item.email.toLowerCase() === email.toLowerCase(),
+  );
+
   if (!user || user.password !== password) {
     return null;
   }
@@ -79,20 +89,35 @@ export function loginDemo() {
   return saveSession(DEMO_USER);
 }
 
-export function updateCurrentUser(update: Pick<User, 'name' | 'email' | 'phone'>) {
+export function updateCurrentUser(
+  update: Pick<User, 'name' | 'email' | 'phone'>,
+) {
   const current = getCurrentUser() ?? DEMO_USER;
+
   const nextUser = {
     ...current,
     ...update,
     avatar: initials(update.name),
   };
+
   storage.set(CURRENT_USER_KEY, JSON.stringify(nextUser));
+
   return nextUser;
 }
 
-export function register(name: string, email: string, password: string, phone?: string) {
+export function register(
+  name: string,
+  email: string,
+  password: string,
+  phone?: string,
+) {
   const users = getUsers();
-  if (users.some((user) => user.email.toLowerCase() === email.toLowerCase())) {
+
+  if (
+    users.some(
+      (user) => user.email.toLowerCase() === email.toLowerCase(),
+    )
+  ) {
     return null;
   }
 
@@ -108,7 +133,9 @@ export function register(name: string, email: string, password: string, phone?: 
   };
 
   const nextUsers = [newUser, ...users];
+
   storage.set(USERS_KEY, JSON.stringify(nextUsers));
+
   return saveSession(newUser);
 }
 
@@ -119,23 +146,35 @@ export function logout() {
 
 export function blockUser(userId: string) {
   const users = getUsers();
+
   const nextUsers = users.map((user) =>
-    user.id === userId ? { ...user, blocked: true } : user,
+    user.id === userId
+      ? { ...user, blocked: true }
+      : user,
   );
+
   storage.set(USERS_KEY, JSON.stringify(nextUsers));
 }
 
 export function unblockUser(userId: string) {
   const users = getUsers();
+
   const nextUsers = users.map((user) =>
-    user.id === userId ? { ...user, blocked: false } : user,
+    user.id === userId
+      ? { ...user, blocked: false }
+      : user,
   );
+
   storage.set(USERS_KEY, JSON.stringify(nextUsers));
 }
 
 export function deleteUser(userId: string) {
   const users = getUsers();
-  const nextUsers = users.filter((user) => user.id !== userId);
+
+  const nextUsers = users.filter(
+    (user) => user.id !== userId,
+  );
+
   storage.set(USERS_KEY, JSON.stringify(nextUsers));
 }
 
